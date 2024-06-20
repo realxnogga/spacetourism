@@ -5,6 +5,8 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storageSession from 'redux-persist/lib/storage/session'; // Use sessionStorage
 import { combineReducers } from '@reduxjs/toolkit';
 import { NavbarSliceReducer } from './feature/navbarSlice';
+import { PlanetSliceReducer } from './feature/planetSlice';
+import { TechnologySliceReducer } from './feature/technologySlice';
 
 const persistConfig = {
   key: 'root',
@@ -13,6 +15,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     NavbarSliceName: NavbarSliceReducer,
+    PlanetSliceName: PlanetSliceReducer,
+    TechnologySliceName: TechnologySliceReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

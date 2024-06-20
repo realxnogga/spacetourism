@@ -7,6 +7,7 @@ import { Destination } from "./page/destination";
 import { Crew } from "./page/crew";
 import { Technology } from "./page/technology";
 import { Page404 } from "./page/page404";
+
 import { Store } from "./store";
 
 function WrapperApp() {

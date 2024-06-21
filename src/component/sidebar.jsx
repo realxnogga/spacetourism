@@ -16,7 +16,7 @@ export const Sidebar = () => {
     return (
         <aside className={`${isSidebarOpen ? 'w-0' : 'w-[15rem]'} absolute top-0 right-0 bg-white bg-opacity-5 backdrop-blur-lg h-screen  duration-300 flex items-start justify-center pt-40`}>
 
-            {/* <nav className="h-fit w-full">
+            <nav className="h-fit w-full">
                 <ul className="flex flex-col gap-y-7">
                     <NavLink to={'/'} className={'h-full'}>
                         <li
@@ -46,7 +46,7 @@ export const Sidebar = () => {
                         </li>
                     </NavLink>
                 </ul>
-            </nav> */}
+            </nav>
 
         </aside>
     )

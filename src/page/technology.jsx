@@ -71,7 +71,7 @@ export const Technology = () => {
                     </div>
 
                     <div className="flex gap-x-14 mo:flex-col">
-                        <div className="flex flex-col w-fit gap-y-5 mo:flex-row mo:w-full mo:justify-center mo:gap-x-4">
+                        <div className="flex flex-col w-fit gap-y-5 mo:flex-row mo:w-full mo:justify-center mo:gap-x-5 pb-3">
                             <div onClick={() => { dispatch(whatTechnologyIsClickedState('launchvehicle')) }} className={`${whatTechnologyIsClicked === 'launchvehicle' ? 'bg-white text-black' : 'text-white'} h-[5rem] w-[5rem] flex items-center justify-center border border-gray-400 hover:border-white rounded-[50%] text-3xl font-semibold mo:h-[2.5rem] mo:w-[2.5rem] mo:text-xl`}>1</div>
                             <div onClick={() => { dispatch(whatTechnologyIsClickedState('spaceport')) }} className={`${whatTechnologyIsClicked === 'spaceport' ? 'bg-white text-black' : 'text-white'} h-[5rem] w-[5rem] flex items-center justify-center border border-gray-400 hover:border-white rounded-[50%] text-3xl font-semibold mo:h-[2.5rem] mo:w-[2.5rem] mo:text-xl`}>2</div>
                             <div onClick={() => { dispatch(whatTechnologyIsClickedState('spacecapsule')) }} className={`${whatTechnologyIsClicked === 'spacecapsule' ? 'bg-white text-black' : 'text-white'} h-[5rem] w-[5rem] flex items-center justify-center border border-gray-400 hover:border-white rounded-[50%] text-3xl font-semibold mo:h-[2.5rem] mo:w-[2.5rem] mo:text-xl`}>3</div>

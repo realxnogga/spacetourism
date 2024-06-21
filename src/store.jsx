@@ -7,6 +7,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 import { NavbarSliceReducer } from './feature/navbarSlice';
 import { PlanetSliceReducer } from './feature/planetSlice';
 import { TechnologySliceReducer } from './feature/technologySlice';
+import { CrewSliceReducer } from './feature/crewSlice';
 
 const persistConfig = {
   key: 'root',
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
     NavbarSliceName: NavbarSliceReducer,
     PlanetSliceName: PlanetSliceReducer,
     TechnologySliceName: TechnologySliceReducer,
+    CrewSliceName: CrewSliceReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

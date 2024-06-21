@@ -38,6 +38,11 @@ export const Home = () => {
                 </div>
             </div>
 
+            <div className="attribution absolute bottom-0 text-gray-300 opacity-25">
+                Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+                Coded by <a href="https://www.facebook.com/alupihang.dagat.142/" className="underline text-blue-500">realxnogga</a>.
+            </div>
+
         </section >
     );
 };

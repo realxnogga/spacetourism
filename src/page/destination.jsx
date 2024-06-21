@@ -52,19 +52,19 @@ export const Destination = () => {
             break;
     }
 
-    const planets = ['moon', 'mars', 'europa', 'titan']; // Add more planets if needed
+    const planetArray = ['moon', 'mars', 'europa', 'titan'];
 
     useEffect(() => {
         let index = 0;
 
         const interval = setInterval(() => {
-            dispatch(whatPlanetIsClickedState(planets[index]));
+            dispatch(whatPlanetIsClickedState(planetArray[index]));
 
-            index >= planets.length - 1 ? index = 0 : index++;
+            index >= planetArray.length - 1 ? index = 0 : index++;
 
-        }, 4000); // 4000 milliseconds = 4 seconds
+        }, 4000);
 
-        return () => clearInterval(interval); // Cleanup interval on component unmount
+        return () => clearInterval(interval);
     }, []);
 
 

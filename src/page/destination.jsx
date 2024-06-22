@@ -6,6 +6,7 @@ import { whatPlanetIsClickedState } from "../feature/planetSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { whatPlanetIsClickedTemp } from "../feature/planetSlice";
 import { useEffect } from "react";
+import { Title } from "../component/title";
 
 export const Destination = () => {
 
@@ -52,24 +53,24 @@ export const Destination = () => {
             break;
     }
 
-    const planetArray = ['moon', 'mars', 'europa', 'titan'];
+    // const planetArray = ['moon', 'mars', 'europa', 'titan'];
 
-    useEffect(() => {
-        let index = 0;
+    // useEffect(() => {
+    //     let index = 0;
 
-        const interval = setInterval(() => {
-            dispatch(whatPlanetIsClickedState(planetArray[index]));
+    //     const interval = setInterval(() => {
+    //         dispatch(whatPlanetIsClickedState(planetArray[index]));
 
-            index >= planetArray.length - 1 ? index = 0 : index++;
+    //         index >= planetArray.length - 1 ? index = 0 : index++;
 
-        }, 4000);
+    //     }, 4000);
 
-        return () => clearInterval(interval);
-    }, []);
+    //     return () => clearInterval(interval);
+    // }, []);
 
 
     return (
-        <section className="relative h-screen w-screen flex items-center justify-center overflow-hidden font-barlow">
+        <section className="relative h-screen w-screen flex flex-col items-center justify-start overflow-hidden font-barlow gap-y-2 mo:gap-y-8">
 
             {
                 screenwidth <= 450 ?
@@ -85,38 +86,36 @@ export const Destination = () => {
                         </section>
                     )
             }
-
+ 
             <Header />
+            <Title />
 
-            <div className={`${screenwidth <= 570 ? 'flex-col top-[7rem]' : ''} z-10 absolute top-[10rem] h-[26rem] w-[66rem] max-w-[85%] flex mo:flex-col mo:h-[70%]`}>
+            <div className={`${screenwidth <= 570 ? 'flex-col top-[7rem]' : ''} z-10 h-fit w-[66rem] max-w-[85%] flex mo:flex-col mo:h-[70%]`}>
 
                 <div className="h-full w-full flex flex-col">
-                    <div className="w-full">
-                        <h3 className={`${screenwidth <= 780 ? 'text-xl' : ''} text-3xl text-white text-start`}><span className="text-gray-400 pr-3 font-bold">01</span> PICK YOUR DESTINATION</h3>
-                    </div>
                     <img src={planet} alt=""
                         className={`${screenwidth <= 780 ? 'h-[8rem] w-[8rem] animate-mobileplanetanimation' : 'animate-desktopplanetanimation'} h-[16rem] w-[16rem] mt-12 mo:h-[10rem] mo:w-[10rem] mo:mt-10`} />
 
                 </div>
-                <div className="h-full w-full flex flex-col justify-between mo:items-center ">
+                <div className="h-full w-full flex flex-col items-start justify-between gap-y-4 mo:gap-y-2 mo:items-center mini:gap-y-1">
                     <nav className="w-full">
-                        <ul className="h-[2rem] flex items-center justify-start gap-x-12 mo:gap-x-0 mo:justify-between">
+                        <ul className="h-[2rem] flex items-center justify-start gap-x-12 mo:gap-x-0 mo:justify-evenly">
                             <li onClick={() => { dispatch(whatPlanetIsClickedState('moon')) }} className={`${whatPlanetIsClicked === 'moon' ? 'text-gray-400 border-b-2' : ''} py-1 text-gray-200 hover:text-gray-300 hover:border-b-2 cursor-pointer`}>MOON</li>
                             <li onClick={() => { dispatch(whatPlanetIsClickedState('mars')) }} className={`${whatPlanetIsClicked === 'mars' ? 'text-gray-400 border-b-2' : ''} py-1  text-gray-200 hover:text-gray-300 hover:border-b-2 cursor-pointer`}>MARS</li>
                             <li onClick={() => { dispatch(whatPlanetIsClickedState('europa')) }} className={`${whatPlanetIsClicked === 'europa' ? 'text-gray-400 border-b-2' : ''} py-1 text-gray-200 hover:text-gray-300 hover:border-b-2 cursor-pointer`}>EUROPA</li>
                             <li onClick={() => { dispatch(whatPlanetIsClickedState('titan')) }} className={`${whatPlanetIsClicked === 'titan' ? 'text-gray-400 border-b-2' : ''} py-1 text-gray-200 hover:text-gray-300 hover:border-b-2 cursor-pointer`}>TITAN</li>
                         </ul>
                     </nav>
-                    <h3 className={`${screenwidth <= 780 ? 'text-[4rem]' : 'text-[7rem]'} text-white`}>{planetName}</h3>
-                    <p className="text-[1rem] text-gray-200 mo:text-[.9rem] mo:text-center">{planetDescription}</p>
+                    <h3 className={`${screenwidth <= 780 ? 'text-[4rem]' : 'text-[7rem]'} text-white mini:text-3xl`}>{planetName}</h3>
+                    <p className="text-[1.2rem] text-gray-200 mo:text-[.9rem] mo:text-center">{planetDescription}</p>
                     <hr className="h-[1px] bg-gray-300 border-none" />
 
-                    <div className={`flex mo:gap-x-10`}>
-                        <div className="flex-grow text-gray-300">
+                    <div className={`flex items-start gap-x-10 w-full mo:justify-evenly`}>
+                        <div className="text-gray-300">
                             <h4>AVG. DISTANCE</h4>
                             <p className={`${screenwidth <= 780 ? 'text-xl' : 'text-4xl'}  text-white font-semibold`}>{planetKm}</p>
                         </div>
-                        <div className="flex-grow text-gray-300">
+                        <div className="text-gray-300">
                             <h4>EST. TRAVEL TIME</h4>
                             <p className={`${screenwidth <= 780 ? 'text-xl' : 'text-4xl'} text-white font-semibold`}>{planetTime}</p>
                         </div>

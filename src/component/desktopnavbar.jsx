@@ -13,7 +13,7 @@ export const DesktopNavbar = () => {
     const whatIsClickedInNavbar = useSelector(whatIsClickedInNavbarTemp);
 
     return (
-        <header className="absolute z-20 top-10 h-[6em] w-screen flex items-center justify-between pl-12">
+        <header className="z-20 h-[6rem] w-full flex items-center justify-end mt-10 pl-12">
            
                 <img src="../assets/shared/logo.svg" alt="" onClick={() => { dispatch(whatIsClickedInNavbarState('home')) }} className="h-[3rem] w-[3rem] min-h-[3rem] min-w-[3rem]"/>
           

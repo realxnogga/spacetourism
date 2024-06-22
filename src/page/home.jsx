@@ -6,7 +6,7 @@ export const Home = () => {
     const screenwidth = ScreenWidth();
 
     return (
-        <section className="relative h-screen w-screen flex items-center justify-center overflow-hidden font-barlow">
+        <section className="relative h-screen w-screen flex flex-col items-center justify-start overflow-hidden font-barlow gap-y-2 mo:gap-y-8">
             {
                 screenwidth <= 450 ?
                     (
@@ -27,7 +27,7 @@ export const Home = () => {
             <div className={`${screenwidth <= 570 ? 'flex-col top-[7rem]' : ''} z-10 absolute top-[10rem] h-[26rem] w-[66rem] max-w-[85%] flex mo:flex-col mo:h-[70%]`}>
 
                 <div className="h-full w-full flex flex-col justify-end mo:items-center ">
-                    <p className={`text-[1.4rem] text-gray-200 font-semibold mo:text-[1rem]`}>SO, YOU WANT TO TRAVEL TO</p>
+                    <p className={`text-[1.4rem] text-gray-200 font-semibold mo:text-[1.2rem]`}>SO, YOU WANT TO TRAVEL TO</p>
                     <h3 className={`${screenwidth <= 780 ? 'text-[5rem]' : ''} text-[9rem] text-white`}>SPACE</h3>
                     <p className="text-[1.2rem] text-gray-200 mo:text-[.9rem] mo:text-center">Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
                 </div>

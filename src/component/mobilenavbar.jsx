@@ -17,19 +17,19 @@ export const MobileNavbar = () => {
     const whatIsClickedInNavbar = useSelector(whatIsClickedInNavbarTemp);
 
     return (
-        <header className="absolute z-20 top-0 h-[5rem] w-screen flex items-center justify-between px-5">
+        <header className="z-20 h-[4rem] w-full px-4 flex items-center justify-between">
             <NavLink to={'/'} >
-                <img src="../assets/shared/logo.svg" alt="" onClick={() => { dispatch(whatIsClickedInNavbarState('home')) }} />
+                <img src="../assets/shared/logo.svg" alt="" onClick={() => { dispatch(whatIsClickedInNavbarState('home')) }}  className="mo:h-[2.5rem] mo:w-2.5rem"/>
             </NavLink>
 
             {isSidebarOpen ?
                 (
-                    <img src="../assets/shared/icon-hamburger.svg" alt=""
+                    <img src="../assets/shared/icon-close.svg" alt=""
                         onClick={() => { dispatch(isSidebarOpenState()) }} className="z-10" />
                 )
                 :
                 (
-                    <img src="../assets/shared/icon-close.svg" alt=""
+                    <img src="../assets/shared/icon-hamburger.svg" alt=""
                         onClick={() => { dispatch(isSidebarOpenState()) }} className="z-10" />
                 )
 

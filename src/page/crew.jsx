@@ -8,6 +8,7 @@ import { Header } from "../component/header";
 import { whatTechnologyIsClickedTemp } from "../feature/technologySlice";
 import { whatCrewIsClickedState } from "../feature/crewSlice";
 import { whatCrewIsClickedTemp } from "../feature/crewSlice";
+import { Title } from "../component/title";
 
 export const Crew = () => {
 
@@ -51,23 +52,23 @@ export const Crew = () => {
             break;
     }
 
-    const crewArray = ['doulashurley', 'markshuttleworth', 'victorglover', 'anoushehansari'];
+    // const crewArray = ['doulashurley', 'markshuttleworth', 'victorglover', 'anoushehansari'];
 
-    useEffect(() => {
-        let index = 0;
+    // useEffect(() => {
+    //     let index = 0;
 
-        const interval = setInterval(() => {
-            dispatch(whatCrewIsClickedState(crewArray[index]));
+    //     const interval = setInterval(() => {
+    //         dispatch(whatCrewIsClickedState(crewArray[index]));
 
-            index >= crewArray.length - 1 ? index = 0 : index++;
+    //         index >= crewArray.length - 1 ? index = 0 : index++;
 
-        }, 4000);
+    //     }, 4000);
 
-        return () => clearInterval(interval);
-    }, []);
+    //     return () => clearInterval(interval);
+    // }, []);
 
     return (
-        <section className="relative h-screen w-screen flex items-center justify-center overflow-hidden font-barlow">
+        <section className="relative h-screen w-screen flex flex-col items-center justify-start overflow-hidden font-barlow gap-y-2 mo:gap-y-8">
             {
                 screenwidth <= 450 ?
                     (
@@ -84,48 +85,31 @@ export const Crew = () => {
             }
 
             <Header />
+            <Title />
 
-            <div className={`${screenwidth <= 780 ? 'flex-col top-[9rem] w-full max-w-full flex-col-reverse justify-center' : ''} z-10 absolute bottom-0 right-0 h-[34rem] w-[80rem] max-w-[90%] flex mo:h-[70%]`}>
+            <div className={`z-10 h-[28rem] w-[66rem] max-w-[85%] flex absolute bottom-0 tab:h-[80%] mini:h-[75%] tab:flex-col mo:flex-col-reverse`}>
 
-                <div className={`${screenwidth <= 780 ? 'px-6' : ''} h-full w-full flex flex-col justify-between py-14 gap-y-10 mo:items-center mo:flex-col-reverse mo:gap-y-5 mo:px-3`}>
-                    <div className="w-full mo:px-3 flex justify-start mo:items-center mo:justify-center">
-                        <h3 className={`${screenwidth <= 780 ? 'text-xl' : ''} text-3xl text-white text-start`}><span className="text-gray-400 pr-3 font-bold">02</span>MEET YOUR CREW</h3>
-                    </div>
-
-                    <div className={`flex flex-col gap-y-5 mo:gap-y-1 mo:text-center`}>
-                        <h4 className="text-gray-400 text-4xl mo:text-2xl   ">{crewRole}</h4>
+                <div className="h-full w-full flex flex-col justify-evenly mo:flex-col-reverse mo:justify-end">
+                    <div className="flex flex-col gap-y-5 tab:gap-y-7 tab:text-center mo:gap-y-2 mini:gap-y-0">
+                        <h3 className="text-gray-200 text-3xl mo:text-2xl">{crewRole}</h3>
                         <h2 className="text-white text-6xl mo:text-3xl">{crewName}</h2>
-                        <p className="text-gray-400 text-2xl mo:text-xl ">{crewDescription}</p>
+                        <p className="text-gray-200 text-xl h-[8rem] mini:text-sm mini:pt-5">{crewDescription}</p>
                     </div>
 
-                    <div className="flex gap-x-7">
-                        <div
-                            onClick={() => { dispatch(whatCrewIsClickedState('doulashurley')) }}
-                            className={`${whatCrewIsClicked === 'doulashurley' ? 'bg-white' : ''} h-[1.1rem] w-[1.1rem] bg-gray-400 rounded-[50%] hover:bg-gray-100 `}>
-
-                        </div>
-                        <div
-                            onClick={() => { dispatch(whatCrewIsClickedState('markshuttleworth')) }}
-                            className={`${whatCrewIsClicked === 'markshuttleworth' ? 'bg-white' : ''} h-[1.1rem] w-[1.1rem] bg-gray-400 rounded-[50%] hover:bg-gray-100 `}>
-
-                        </div>
-                        <div
-                            onClick={() => { dispatch(whatCrewIsClickedState('victorglover')) }}
-                            className={`${whatCrewIsClicked === 'victorglover' ? 'bg-white' : ''} h-[1.1rem] w-[1.1rem] bg-gray-400 rounded-[50%] hover:bg-gray-100 `}>
-
-                        </div>
-                        <div
-                            onClick={() => { dispatch(whatCrewIsClickedState('anoushehansari')) }}
-                            className={`${whatCrewIsClicked === 'anoushehansari' ? 'bg-white' : ''} h-[1.1rem] w-[1.1rem] bg-gray-400 rounded-[50%] hover:bg-gray-100 `}>
-
-                        </div>
+                    <div className="mo:py-5 mini:py-3">
+                        <nav className="flex gap-x-5 tab:justify-center">
+                            <li onClick={()=> {dispatch(whatCrewIsClickedState('doulashurley'))}} className={`${whatCrewIsClicked === 'doulashurley' ? 'bg-white' : ''} h-[1rem] w-[1rem] list-none bg-gray-400 rounded-[50%] hover:bg-gray-300 cursor-pointer`}></li>
+                            <li onClick={()=> {dispatch(whatCrewIsClickedState('markshuttleworth'))}} className={`${whatCrewIsClicked === 'markshuttleworth' ? 'bg-white' : ''} h-[1rem] w-[1rem] list-none bg-gray-400 rounded-[50%] hover:bg-gray-300 cursor-pointer`}></li>
+                            <li onClick={()=> {dispatch(whatCrewIsClickedState('victorglover'))}} className={`${whatCrewIsClicked === 'victorglover' ? 'bg-white' : ''} h-[1rem] w-[1rem] list-none bg-gray-400 rounded-[50%] hover:bg-gray-300 cursor-pointer`}></li>
+                            <li onClick={()=> {dispatch(whatCrewIsClickedState('anoushehansari'))}} className={`${whatCrewIsClicked === 'anoushehansari' ? 'bg-white' : ''} h-[1rem] w-[1rem] list-none bg-gray-400 rounded-[50%] hover:bg-gray-300 cursor-pointer`}></li>
+                        </nav>
                     </div>
-                </div>
-
-                <div className={`${screenwidth <= 1180 ? 'min-h-[15rem]' : ''} h-full w-full bg-contain bg-center bg-no-repeat`}
-                    style={{ backgroundImage: `url('${crew}')` }}>
 
                 </div>
+
+                <div className={`h-full w-full flex flex-col items-start justify-between gap-y-4 mo:gap-y-2 mo:items-center mo:border-b mini:gap-y-1 bg-[url(${crew})] bg-contain bg-center bg-no-repeat bg-right tab:bg-center`}>
+                </div>
+
             </div>
         </section>
     )

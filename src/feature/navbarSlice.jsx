@@ -12,6 +12,9 @@ export const NavbarSlice = createSlice({
         isSidebarOpen: false,
     },
     reducers: {
+        clearIsSidebarOpenState: (state) => {
+            state.isSidebarOpen = false;
+        },
         isSidebarOpenState: (state) => {
             state.isSidebarOpen = !state.isSidebarOpen;
         },
@@ -21,7 +24,7 @@ export const NavbarSlice = createSlice({
     },
 })
 
-export const { whatIsClickedInNavbarState, isSidebarOpenState } = NavbarSlice.actions;
+export const { whatIsClickedInNavbarState, isSidebarOpenState, clearIsSidebarOpenState } = NavbarSlice.actions;
 export const isSidebarOpenTemp = state => state.NavbarSliceName.isSidebarOpen;
 export const whatIsClickedInNavbarTemp = state => state.NavbarSliceName.whatIsClickedInNavbar;
 export const NavbarSliceReducer = NavbarSlice.reducer;
